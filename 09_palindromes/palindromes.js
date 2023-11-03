@@ -16,12 +16,19 @@ const palindromes = function (a) {
         if (!letters.includes(value)) {
             if (!numbers.includes(value)) {
                 array.splice(index, 1);
+                console.log(value)
             };
         };
+        if (value === " ") {
+            // array.splice(index, 1);
+            return "there is a space";
+        };
     });
-    
-    const stringReg = array.join('');
-    const arrayRev = array.reverse();
+
+    const filterArray = array.filter(value => letters.includes(value) || numbers.includes(value))
+
+    const stringReg = filterArray.join('');
+    const arrayRev = filterArray.reverse();
     const stringRev = arrayRev.join('');
     if (stringRev === stringReg) {
         return true;
